@@ -21,11 +21,11 @@ pipeline{
     stage ('Send War File to Tomcat Server') {
     steps {
       sshagent(['tomcat2']) {
-        sh """
-           scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.102.150:/home/ubuntu
-           ssh -o StrictHostKeyChecking=no ubuntu@65.0.102.150 'cp -r /home/ubuntu/*.war /home/ubuntu/prod/apache-tomcat-10.0.22/webapps/'
-         """
-        // sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.102.150:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
+        // sh """
+        //   scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.102.150:/home/ubuntu
+        //   ssh -o StrictHostKeyChecking=no ubuntu@65.0.102.150 'cp -r /home/ubuntu/*.war /home/ubuntu/prod/apache-tomcat-10.0.22/webapps/'
+        // """
+         sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@65.0.102.150:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
       }
     }
   }
