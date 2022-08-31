@@ -21,18 +21,27 @@ pipeline{
       }
     }
     
-    //stage ('Source Composition Analysis') {
-      //steps {
-       //  sh 'rm owasp* || true'
-       //  sh 'wget "https://github.com/shashwatsharm/webapp/blob/main/owasp-dependency-check.sh" '
-       //  sh 'ls'
-       //  sh 'pwd'
-       //  sh 'whoami'
-       //  sh 'chmod +x owasp-dependency-check.sh'
+    stage ('Source Composition Analysis') {
+      steps {
+         sh 'rm owasp* || true'
+         sh 'wget "https://github.com/shashwatsharm/webapp/blob/main/owasp-dependency-check.sh" '
+         sh 'ls'
+         sh 'pwd'
+         sh 'whoami'
+         sh 'chmod +x owasp-dependency-check.sh'
        //  sh './owasp-dependency-check.sh'
        //  sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
-      //}
-    //}
+      }
+    }
+    
+    stage('SAST') {
+      steps {
+        withSonarQubeEnv('devopssecure') {
+          //sh 'mvn sonar:sonar'
+          //sh 'cat target/sonar/report-task.txt'
+        }
+      }
+    }
     
     stage ('Build') {
       steps {
