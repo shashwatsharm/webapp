@@ -21,18 +21,18 @@ pipeline{
       }
     }
     
-    stage ('Source Composition Analysis') {
-      steps {
+    //stage ('Source Composition Analysis') {
+      //steps {
        //  sh 'rm owasp* || true'
        //  sh 'wget "https://github.com/shashwatsharm/webapp/blob/main/owasp-dependency-check.sh" '
-         sh 'ls'
-         sh 'pwd'
-         sh 'whoami'
-         sh 'chmod +x owasp-dependency-check.sh'
-         sh './owasp-dependency-check.sh'
-         sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
-      }
-    }
+       //  sh 'ls'
+       //  sh 'pwd'
+       //  sh 'whoami'
+       //  sh 'chmod +x owasp-dependency-check.sh'
+       //  sh './owasp-dependency-check.sh'
+       //  sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+      //}
+    //}
     
     stage ('Build') {
       steps {
