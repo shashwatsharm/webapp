@@ -52,7 +52,7 @@ pipeline{
     stage ('Send War File to Tomcat Server') {
     steps {
       sshagent(['tomcat2']) {
-         sh 'scp -i /var/lib/jenkins/jenkins2.pem -o StrictHostKeyChecking=no target/*.war ubuntu@13.233.110.176:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
+         sh 'scp -i /var/lib/jenkins/jenkins2.pem -o StrictHostKeyChecking=no target/*.war ubuntu@3.110.143.76:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
       }
     }
   }
