@@ -44,6 +44,12 @@ pipeline{
       }
     }
     
+    stage('DAST') {
+      steps {
+        sh 'ls'
+      }
+    }
+    
     stage ('Build') {
       steps {
       sh 'mvn clean package' 
