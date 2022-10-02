@@ -59,7 +59,7 @@ pipeline{
     stage ('DAST') {
     steps {
       sshagent(['tomcat2']) {
-         sh 'scp -i /var/lib/jenkins/jenkins2.pem -o StrictHostKeyChecking=no target/*.war ubuntu@13.127.249.3:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
+         sh 'scp -i /var/lib/jenkins/jenkins2.pem -o StrictHostKeyChecking=no target/*.war ubuntu@65.2.180.183:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
       }
     }
   }
