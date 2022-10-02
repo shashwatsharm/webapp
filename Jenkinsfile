@@ -44,19 +44,19 @@ pipeline{
       }
     }
     
-    stage('DAST') {
+    stage('Build') {
       steps {
         sh 'ls'
       }
     }
     
-    stage ('Build') {
+    stage ('Send War File to Tomcat Server') {
       steps {
       sh 'mvn clean package' 
     }
     }
     
-    stage ('Send War File to Tomcat Server') {
+    stage ('DAST') {
     steps {
       sshagent(['tomcat2']) {
          sh 'scp -i /var/lib/jenkins/jenkins2.pem -o StrictHostKeyChecking=no target/*.war ubuntu@13.127.249.3:/home/ubuntu/prod/apache-tomcat-10.0.22/webapps/webapp.war'
